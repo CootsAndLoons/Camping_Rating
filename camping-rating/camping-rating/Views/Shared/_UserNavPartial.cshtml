@@ -1,0 +1,6 @@
+﻿@if (User.IsInRole("User"))
+{
+    <li>
+        <a class="nav-link text-dark" asp-controller="Reviews" asp-action="MyReviews">My Reviews</a>
+    </li>
+}

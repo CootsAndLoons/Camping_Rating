@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Users</h5>
+                        <p class="card-text display-4">@ViewData["UserCount"]</p>
+                        <a asp-controller="Users" asp-action="Index" class="btn btn-light">Manage</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Camping Spots</h5>
+                        <p class="card-text display-4">@ViewData["CampingCount"]</p>
+                        <a asp-controller="CampingSpots" asp-action="Index" class="btn btn-light">Manage</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-info mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Reviews</h5>
+                        <p class="card-text display-4">@ViewData["ReviewCount"]</p>
+                        <a asp-controller="Reviews" asp-action="Index" class="btn btn-light">Manage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <p class="mt-5">Browse our camping spots and leave your reviews!</p>
+        <a asp-controller="CampingSpots" asp-action="Index" class="btn btn-primary btn-lg">View Camping Spots</a>
+    }
+</div>
